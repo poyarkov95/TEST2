@@ -12,6 +12,6 @@ namespace FactoryNEW
         abstract public double rdDouble(int count);
         abstract public string rdString(int count);
         abstract public bool eof();
-        
+        // i cant make commit (((((
     }
 }
