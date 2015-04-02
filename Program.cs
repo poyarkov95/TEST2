@@ -11,23 +11,32 @@ namespace FactoryNEW
     {
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("InputDataFile.txt");
             Program pr = new Program();
-            ArrayList arr = new ArrayList();
-            foreach (string line in lines)
-            {
-                string[] type = line.Split(' ');
-                arr.Add(pr.ChoiseType(type[0]));
-            }
-
+            Filer f = new FileFiler("InputDataFile.txt");
+            var obj = pr.loadFile(f);
             Console.ReadKey();
         }
 
-        public Shape ChoiseType(string type)
+        ArrayList loadFile(Filer filer)
         {
-            int N = int.Parse(type);
+            Program pr = new Program();
+            ArrayList arr = new ArrayList();
 
-            switch (N)
+            while (filer.eof())
+            {
+                int header = filer.rdInt(0);
+                Shape s = pr.ChoiseType(header);
+                s.Load(filer);
+                arr.Add(s);
+                
+            }
+            return arr;
+
+        }
+
+        public Shape ChoiseType(int type)
+        {
+            switch (type)
             {
                 case 1:
                     return new Circle();

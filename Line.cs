@@ -9,13 +9,14 @@ namespace FactoryNEW
     { 
         double x1, y1, x2, y2;
         string name;
-        public void Load(string[] type)
+        public void Load(Filer type)
         {
-            this.x1 = double.Parse(type[1]);
-            this.y1 = double.Parse(type[2]);
-            this.x2 = double.Parse(type[3]);
-            this.y2 = double.Parse(type[4]);
-            this.name = type[5];
+            this.x1 = type.rdDouble(1);
+            this.y1 = type.rdDouble(2);
+            this.x2 = type.rdDouble(3);
+            this.y2 = type.rdDouble(4);
+            this.name = type.rdString(5);
+            
         }
     }
 }

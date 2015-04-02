@@ -10,13 +10,13 @@ namespace FactoryNEW
         double x, y;
         int r;
         string name;
-        public void Load(string[] type)
+        public void Load(Filer type)
         {
-            this.x = double.Parse(type[1]);
-            this.y = double.Parse(type[2]);
-            this.r = int.Parse(type[3]);
-            this.name = type[4];
-            Console.WriteLine("Создан " + name + "с центром х : " + x + "y : " + y + "и радиусом " + r);
+            this.x = type.rdDouble(1);
+            this.y = type.rdDouble(2);
+            this.r = type.rdInt(3);
+            this.name = type.rdString(4);
+           
         }
     }
 }
